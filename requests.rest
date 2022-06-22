@@ -1,0 +1,7 @@
+POST http://localhost:3003/class
+Content-Type: application/json
+
+    {
+        "name": "Silveira",
+        "module": 5
+    }
