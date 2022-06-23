@@ -6,13 +6,31 @@ export class ClassDataBase extends DataBase {
         const {getName, getModule} = classInfo;
 
         try {
-            await DataBase.connection("Class").insert({
+            await this.getConnection().insert({
                 name: getName(),
                 module: getModule()
-            });
+            }).into("Class");
 
         } catch (error: any) {
-            throw new Error("Erro ao inserir class no banco de dados");
+            throw new Error("Erro ao inserir turma no banco de dados");
+        }
+    };
+
+    public async selectClasses(): Promise<ClassModel[]> {
+        try {
+            return await this.getConnection().select("*").from("Class");
+
+        } catch (error: any) {
+            throw new Error("Erro ao pegar dados das turmas");
+        }
+    };
+
+    public async updateClassModule(module: number, id: number): Promise<void> {
+        try {
+            await this.getConnection().update({module}).where({id}).into("Class");
+
+        } catch (error: any) {
+            throw new Error("Erro ao editar módulo no banco de dados");
         }
     };
 };

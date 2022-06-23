@@ -1,4 +1,10 @@
 import { app } from "./app";
-import { createClass } from "./endpoint/createClass";
+import { ClassController } from "./endpoint/ClassController";
 
-app.post("/class", createClass);
+const classController = new ClassController();
+
+app.post("/class", classController.createClass);
+
+app.get("/class", classController.getClasses);
+
+app.patch("/class/:id", classController.updateClassModule);

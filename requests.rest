@@ -5,3 +5,11 @@ Content-Type: application/json
         "name": "Shaw",
         "module": 5
     }
+
+###
+
+GET http://localhost:3003/class
+
+###
+
+PATCH http://localhost:3003/class/2?module=4
