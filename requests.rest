@@ -2,7 +2,7 @@ POST http://localhost:3003/class
 Content-Type: application/json
 
     {
-        "name": "Silveira",
+        "name": "Shaw",
         "module": 5
     }
 
