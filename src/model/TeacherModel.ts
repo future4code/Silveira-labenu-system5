@@ -1,4 +1,4 @@
-export class ClassModel {    
+export class TeacherModel {    
     constructor(
         private name: string,
         private email: string,

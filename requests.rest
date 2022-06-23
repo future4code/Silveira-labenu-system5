@@ -5,6 +5,19 @@ Content-Type: application/json
         "name": "Shaw",
         "module": 5
     }
+    
+###   
+
+POST http://localhost:3003/teacher
+Content-Type: application/json
+
+    {
+        "name": "Murillo",
+        "email": "Murilao@Labenu.com",
+        "birthDate": "2000-06-23",
+        "classID": 1,
+        "specs": "JS"
+    }
 
 ###
 
