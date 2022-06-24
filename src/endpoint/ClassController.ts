@@ -12,6 +12,11 @@ export class ClassController {
                 res.statusCode = 422;
                 throw new Error("Nome ou módulo de turma inválido");
             }
+
+            if(module < 0 || module > 6) {
+                res.statusCode = 422;
+                throw new Error("Módulo inválido. Selecione um módulo do 1-6");
+            }
     
             await new ClassDataBase().insertClass(classInfo);
     
@@ -45,7 +50,7 @@ export class ClassController {
 
             await new ClassDataBase().updateClassModule(module, id);
 
-            res.status(200).end();
+            res.status(200).send("Módulo trocado com sucesso");
 
         } catch (error: any) {
             res.status(res.statusCode !== 200 ? res.statusCode : 500).send(error.sqlMessage || error.message);
