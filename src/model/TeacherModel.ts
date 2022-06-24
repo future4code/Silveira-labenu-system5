@@ -1,10 +1,10 @@
-export class ClassModel {    
+export class TeacherModel {    
     constructor(
         private name: string,
         private email: string,
         private birth_date: string,
         private class_id: number,
-        private specs: string
+        private specs: string[]
     ) {};
 
     public getTeacherInfo(){

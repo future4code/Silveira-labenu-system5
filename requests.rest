@@ -5,6 +5,19 @@ Content-Type: application/json
         "name": "Shaw",
         "module": 5
     }
+    
+###   
+
+POST http://localhost:3003/teacher
+Content-Type: application/json
+
+    {
+        "name": "Janna",
+        "email": "confusiCode@Labenu.com",
+        "birthDate": "23/12/1997",
+        "classID": 1,
+        "specs": ["React","JS","Typescript"]
+    }
 
 ###
 
@@ -12,4 +25,12 @@ GET http://localhost:3003/class
 
 ###
 
+GET http://localhost:3003/teacher
+
+###
+
 PATCH http://localhost:3003/class/2?module=4
+
+###
+
+PATCH http://localhost:3003/teacher/1?class=1
