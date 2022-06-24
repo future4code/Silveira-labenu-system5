@@ -17,10 +17,15 @@ PATCH http://localhost:3003/class/2?module=4
 ###
 POST http://localhost:3003/student
 Content-Type: application/json
+
 {
-    "name": "Luiao",
-    "email": "luiao@email.com",
-    "birthDate": "2000-03-12",
+    "name": "luis",
+    "email": "luisfilipo@email.com",
+    "birthDate": "1998-05-05",
     "classID": 1,
-    "hobby": "Apostar corrida com tartaruga"
+    "hobby": "Beber água de cabeça pra baixo"
 }
+###
+
+GET http://localhost:3003/student
+###

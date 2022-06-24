@@ -20,4 +20,12 @@ export class StudentDataBase extends DataBase {
             console.log(error.sqlMessage)
         }
     }
+
+    public async selectStudents(): Promise<StudentModel[]> {
+        try {
+            return await this.getConnection().select("*").from("Student")
+        } catch (error: any) {
+            throw new Error("Erro ao pegar dados dos alunos")
+        }
+    }
 }
