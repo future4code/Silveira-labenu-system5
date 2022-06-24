@@ -26,7 +26,7 @@ export class StudentDataBase extends DataBase {
             return await this.getConnection()
                 .select("*")
                 .from("Student")
-                .where("Student.name", "LIKE", nome)
+                .where("name", "LIKE", nome)
         } catch (error: any) {
             throw new Error("Erro ao pegar dados dos alunos")
         }
