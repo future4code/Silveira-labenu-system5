@@ -6,11 +6,13 @@ export class StudentController {
     public async createStudent(req: Request, res: Response): Promise<void> {
         try {
             const { name, email, birthDate, classID, hobby } = req.body
-            const studentInfo = new StudentModel(name, email, birthDate, classID, hobby)
-
+            
             if (!name || !email || !birthDate || !classID || !hobby) {
                 throw new Error("Preencha os campos corretamente.")
             }
+
+            const reverseDate = birthDate.split("/").reverse().join("-")
+            const studentInfo = new StudentModel(name, email, reverseDate, classID, hobby)
             await new StudentDataBase().insertStudent(studentInfo)
             res.status(200).end()
         } catch (error: any) {
