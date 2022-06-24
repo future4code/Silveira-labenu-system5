@@ -19,13 +19,15 @@ POST http://localhost:3003/student
 Content-Type: application/json
 
 {
-    "name": "Carlos",
-    "email": "Carlinho@email.com",
-    "birthDate": "01/01/1996",
+    "name": "Charles",
+    "email": "charles@email.com",
+    "birthDate": "03/01/1995",
     "classID": 1,
-    "hobby": ["Arrumar bicicleta", "Limpar prato com bombril"]
+    "hobby": ["Jogar bola", "Jogar bola de novo"]
 }
 ###
 
-GET http://localhost:3003/student?nome=erico
+GET http://localhost:3003/student?nome=luiao
 ###
+
+PATCH  http://localhost:3003/student/1?class=2

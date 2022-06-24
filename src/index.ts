@@ -14,3 +14,5 @@ app.patch("/class/:id", classController.updateClassModule);
 app.post("/student", studentController.createStudent);
 
 app.get("/student", studentController.getStudents)
+
+app.patch("/student/:id", studentController.updateStudent)

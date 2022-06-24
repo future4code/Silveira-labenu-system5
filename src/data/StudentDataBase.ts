@@ -41,8 +41,7 @@ export class StudentDataBase extends DataBase {
                     .into("Student_Hobby")
             })
         } catch (error: any) {
-            console.log(error.sqlMessage)
-            // throw new Error("Erro ao inserir aluno no banco de dados")
+            throw new Error("Erro ao inserir aluno no banco de dados")
         }
     }
 
@@ -54,6 +53,17 @@ export class StudentDataBase extends DataBase {
                 .where("name", "LIKE", nome)
         } catch (error: any) {
             throw new Error("Erro ao pegar dados dos alunos")
+        }
+    }
+
+    public async updateStudantClass(studentID: number, classID: number): Promise<void> {
+        try {
+            await this.getConnection()
+                .update({ class_id: classID })
+                .where({ id: studentID })
+                .into("Student")
+        } catch (error: any) {
+            throw new Error("Erro ao mudar aluno de turma")
         }
     }
 }

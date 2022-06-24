@@ -6,7 +6,7 @@ export class StudentController {
     public async createStudent(req: Request, res: Response): Promise<void> {
         try {
             const { name, email, birthDate, classID, hobby } = req.body
-            
+
             if (!name || !email || !birthDate || !classID || !hobby) {
                 throw new Error("Preencha os campos corretamente.")
             }
@@ -28,6 +28,21 @@ export class StudentController {
             }
             const result = await new StudentDataBase().selectStudents(nome)
             res.status(200).send(result);
+        } catch (error: any) {
+            res.status(res.statusCode !== 200 ? res.statusCode : 500).send(error.sqlMessage || error.message);
+        }
+    }
+
+    public async updateStudent(req: Request, res: Response): Promise<void> {
+        try {
+            const studentID = Number(req.params.id)
+            const classID = Number(req.query.class)
+
+            if (!studentID || !classID) {
+                throw new Error("Preencha corretamente os parâmetros")
+            }
+            await new StudentDataBase().updateStudantClass(studentID, classID)
+            res.status(200).send("Aluno tranferido de turma!")
         } catch (error: any) {
             res.status(res.statusCode !== 200 ? res.statusCode : 500).send(error.sqlMessage || error.message);
         }
