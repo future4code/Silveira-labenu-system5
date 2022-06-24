@@ -21,6 +21,9 @@ export class StudentController {
     public async getStudents(req: Request, res: Response): Promise<void> {
         try {
             const nome = req.query.nome as string
+            if (!nome) {
+                throw new Error("Estudante não encontrado")
+            }
             const result = await new StudentDataBase().selectStudents(nome)
             res.status(200).send(result);
         } catch (error: any) {
