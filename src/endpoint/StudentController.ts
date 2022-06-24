@@ -20,7 +20,9 @@ export class StudentController {
 
     public async getStudents(req: Request, res: Response): Promise<void> {
         try {
-            res.status(200).send(await new StudentDataBase().selectStudents());
+            const nome = req.query.nome as string
+            await new StudentDataBase().selectStudents(nome)
+            res.status(200).send();
         } catch (error: any) {
             res.status(res.statusCode !== 200 ? res.statusCode : 500).send(error.sqlMessage || error.message);
         }

@@ -21,9 +21,12 @@ export class StudentDataBase extends DataBase {
         }
     }
 
-    public async selectStudents(): Promise<StudentModel[]> {
+    public async selectStudents(nome: string): Promise<StudentModel[]> {
         try {
-            return await this.getConnection().select("*").from("Student")
+            return await this.getConnection()
+                .select("*")
+                .from("Student")
+                .where("Student.name", "LIKE", nome)
         } catch (error: any) {
             throw new Error("Erro ao pegar dados dos alunos")
         }
