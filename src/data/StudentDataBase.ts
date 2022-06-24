@@ -17,7 +17,7 @@ export class StudentDataBase extends DataBase {
                     name: hobby
                 }).into("Hobby")
         } catch (error: any) {
-            console.log(error.sqlMessage)
+            throw new Error("Erro ao inserir turma no banco de dados")
         }
     }
 
