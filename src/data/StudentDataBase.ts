@@ -12,12 +12,37 @@ export class StudentDataBase extends DataBase {
                     birth_date: birthDate,
                     class_id: classID,
                 }).into("Student")
-            await this.getConnection()
-                .insert({
-                    name: hobby
-                }).into("Hobby")
+
+            hobby.map(async (item) => {
+                await this.getConnection()
+                    .insert({
+                        name: item
+                    })
+                    .into("Hobby")
+                const studentID = await this.getConnection()
+                    .select("id")
+                    .from("Student")
+                    .where({
+                        name: name
+                    })
+
+                const hobbyID = await this.getConnection()
+                    .select("id")
+                    .from("Hobby")
+                    .where({
+                        name: item
+                    })
+
+                await this.getConnection()
+                    .insert({
+                        student_id: studentID[0].id,
+                        hobby_id: hobbyID[0].id
+                    })
+                    .into("Student_Hobby")
+            })
         } catch (error: any) {
-            throw new Error("Erro ao inserir turma no banco de dados")
+            console.log(error.sqlMessage)
+            // throw new Error("Erro ao inserir aluno no banco de dados")
         }
     }
 
