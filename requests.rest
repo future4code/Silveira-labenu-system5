@@ -12,11 +12,11 @@ POST http://localhost:3003/teacher
 Content-Type: application/json
 
     {
-        "name": "Murillo",
-        "email": "Murilao@Labenu.com",
-        "birthDate": "2000-06-23",
+        "name": "Janna",
+        "email": "confusiCode@Labenu.com",
+        "birthDate": "23/12/1997",
         "classID": 1,
-        "specs": "JS"
+        "specs": ["React","JS","Typescript"]
     }
 
 ###
@@ -25,4 +25,12 @@ GET http://localhost:3003/class
 
 ###
 
+GET http://localhost:3003/teacher
+
+###
+
 PATCH http://localhost:3003/class/2?module=4
+
+###
+
+PATCH http://localhost:3003/teacher/1?class=1

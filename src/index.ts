@@ -11,4 +11,8 @@ app.post("/teacher", teacherController.createTeacher)
 
 app.get("/class", classController.getClasses);
 
+app.get("/teacher", teacherController.getAllTeachers);
+
 app.patch("/class/:id", classController.updateClassModule);
+
+app.patch("/teacher/:id", teacherController.changeTeacherClass)
