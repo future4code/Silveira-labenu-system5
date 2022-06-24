@@ -51,3 +51,19 @@ CREATE TABLE Speciality (
 DESCRIBE Student;
 
 SELECT * FROM Class;
+
+INSERT INTO Speciality (name) VALUES ("JS"), ("CSS"), ("React"), ("Typescript"), ("POO");
+
+SELECT * FROM Speciality;
+
+SELECT * FROM Teacher;
+
+SELECT * FROM Student;
+
+SELECT * FROM Hobby;
+
+SELECT * FROM Teacher_Speciality;
+
+SELECT * FROM Student_Hobby;
+
+ALTER TABLE Speciality CHANGE name name ENUM("JS", "CSS", "React", "Typescript", "POO");
